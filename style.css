@@ -1,1 +1,15 @@
-
+/* style.css */
+body { font-family: Arial, sans-serif; padding: 20px; }
+#cardsContainer { display: flex; flex-wrap: wrap; }
+.contact-card {
+  width: 200px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+.contact-card:hover { transform: scale(1.05); }
+.contact-card img { width: 100%; height: auto; border-radius: 10px; }
