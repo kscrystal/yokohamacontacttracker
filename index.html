@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Pokémon Contact Cards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Contact Cards</h1>
+  <input type="text" id="search" placeholder="Search contacts...">
+  <button id="addContactBtn">Add Contact</button>
+  <div id="cardsContainer"></div>
 
+  <!-- Add/Edit Modal -->
+  <div id="modal" class="modal">
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Name" required>
+      <input type="text" id="phone" placeholder="Phone" required>
+      <input type="email" id="email" placeholder="Email">
+      <input type="text" id="notes" placeholder="Notes">
+      <input type="file" id="photo">
+      <button type="submit">Save</button>
+      <button type="button" id="closeModal">Cancel</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
