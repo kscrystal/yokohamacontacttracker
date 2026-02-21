@@ -2,28 +2,85 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Pokémon Contact Cards</title>
+  <title>Discipleship Contact Cards</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Contact Cards</h1>
-  <input type="text" id="search" placeholder="Search contacts...">
-  <button id="addContactBtn">Add Contact</button>
-  <div id="cardsContainer"></div>
 
-  <!-- Add/Edit Modal -->
-  <div id="modal" class="modal">
+<h1>Discipleship Tracker</h1>
+
+<div class="top-controls">
+  <input type="text" id="searchInput" placeholder="Search by name...">
+
+  <select id="milestoneFilter">
+    <option value="all">All</option>
+    <option value="0.5">Open (0.5+)</option>
+    <option value="1">Salvation (1+)</option>
+    <option value="2">Next Step (2+)</option>
+    <option value="3">Holy Spirit (3+)</option>
+    <option value="4">Baptism (4+)</option>
+  </select>
+
+  <button id="addBtn">Add Contact</button>
+</div>
+
+<div id="cardsContainer"></div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h2>Add / Edit Contact</h2>
+
     <form id="contactForm">
-      <input type="text" id="name" placeholder="Name" required>
-      <input type="text" id="phone" placeholder="Phone" required>
-      <input type="email" id="email" placeholder="Email">
-      <input type="text" id="notes" placeholder="Notes">
+      <input type="hidden" id="_rowIndex">
+
+      <input type="text" id="Name" placeholder="Name" required>
+      
+      <select id="GospelShared">
+        <option value="NO">Gospel Shared - NO</option>
+        <option value="YES">Gospel Shared - YES</option>
+      </select>
+
+      <select id="Salvation">
+        <option value="NO">Salvation - NO</option>
+        <option value="YES">Salvation - YES</option>
+      </select>
+
+      <select id="Prayed">
+        <option value="NO">Prayed - NO</option>
+        <option value="YES">Prayed - YES</option>
+      </select>
+
+      <textarea id="Remarks" placeholder="Remarks"></textarea>
+      <textarea id="UpdatedRemarks" placeholder="Updated Remarks"></textarea>
+
+      <input type="text" id="LINEID" placeholder="LINE ID">
+      <input type="text" id="InstagramID" placeholder="Instagram ID">
+      <input type="text" id="HelloTalkID" placeholder="HelloTalk ID">
+      <input type="text" id="JobSchool" placeholder="Job / School">
+      <input type="text" id="OccupationCourse" placeholder="Occupation / Course">
+
+      <select id="MilestoneScore">
+        <option value="0">Not Open</option>
+        <option value="0.5">Open</option>
+        <option value="1">Salvation</option>
+        <option value="1.5">Next Step Started</option>
+        <option value="2">Next Step Completed</option>
+        <option value="2.5">Next Step Weekend 1</option>
+        <option value="3">Baptism of Holy Spirit</option>
+        <option value="4">Baptism</option>
+      </select>
+
       <input type="file" id="photo">
-      <button type="submit">Save</button>
-      <button type="button" id="closeModal">Cancel</button>
+
+      <div class="modal-buttons">
+        <button type="submit">Save</button>
+        <button type="button" id="closeModal">Cancel</button>
+      </div>
     </form>
   </div>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
