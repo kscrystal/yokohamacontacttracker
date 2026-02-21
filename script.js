@@ -1,10 +1,11 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbw55-G292BdO_oaA7KST9nEIQqbf7yXXsIXHV_gArrqWmy9PU9UohCdOfp5FfTTkOSK/exec";
 
+const tg = window.Telegram.WebApp;
+tg.expand();
 const container = document.getElementById("cardsContainer");
 const modal = document.getElementById("modal");
 const form = document.getElementById("contactForm");
-const tg = window.Telegram.WebApp;
-tg.expand();
+
 
 let contacts = [];
 
