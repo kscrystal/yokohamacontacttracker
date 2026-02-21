@@ -3,6 +3,8 @@ const API_URL = "https://script.google.com/macros/s/AKfycbw55-G292BdO_oaA7KST9nE
 const container = document.getElementById("cardsContainer");
 const modal = document.getElementById("modal");
 const form = document.getElementById("contactForm");
+const tg = window.Telegram.WebApp;
+tg.expand();
 
 let contacts = [];
 
