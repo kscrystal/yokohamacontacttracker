@@ -1,4 +1,4 @@
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbynGs8pEJ11Rd8-PuUEUxWdY8pBB5AS6KLRISZmUSiq3u9DGnHwDW2cdSYfqTsg_pgZ/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx2SAwMd7Qdrc1mVkdgZuUaGUZbF6qzvSXX8sgNkazrhLYez0Tts7qjqXv87cBuDhG8/exec";
 const LOCAL_KEY = "contacts_local";
 
 // ------------------- IMAGE COMPRESSION -------------------
