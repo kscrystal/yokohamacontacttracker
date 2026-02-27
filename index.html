@@ -18,10 +18,10 @@
     <input type="file" id="PhotoFile" accept="image/*">
 
     <label>Gospel Shared</label>
-    <select name="GospelShared"><option>No</option><option>Yes</option></select>
+    <select name="GospelShared"><option>Yes</option><option>No</option></select>
 
     <label>Salvation</label>
-    <select name="Salvation"><option>No</option><option>Yes</option></select>
+    <select name="Salvation"><option>Yes</option><option>No</option></select>
 
     <label>Prayed</label>
     <select name="Prayed"><option>No</option><option>Yes</option></select>
@@ -50,21 +50,33 @@
     <label>Occupation / Course</label>
     <input type="text" name="OccupationCourse">
 
-    <label>Stars (0-5)</label>
-    <input type="number" name="MilestoneScore" min="0" max="5">
+    <label>Milestone</label>
+    <select name="MilestoneScore">
+      <option value="0">Not Open</option>
+      <option value="0.5">Open</option>
+      <option value="1">Salvation</option>
+      <option value="1.5">Next Step Started</option>
+      <option value="2">Next Step Completed</option>
+      <option value="2.5">Next Step Weekend 1</option>
+      <option value="3">Baptism of Holy Spirit</option>
+      <option value="4">Baptism</option>
+    </select>
 
     <button type="submit">Add Contact</button>
   </form>
 
   <div class="filters">
     <input type="text" id="searchName" placeholder="Search by name">
-    <select id="filterStars">
-      <option value="">All stars</option>
-      <option value="1">1★</option>
-      <option value="2">2★</option>
-      <option value="3">3★</option>
-      <option value="4">4★</option>
-      <option value="5">5★</option>
+    <select id="filterMilestone">
+      <option value="">All Milestones</option>
+      <option value="0">Not Open</option>
+      <option value="0.5">Open</option>
+      <option value="1">Salvation</option>
+      <option value="1.5">Next Step Started</option>
+      <option value="2">Next Step Completed</option>
+      <option value="2.5">Next Step Weekend 1</option>
+      <option value="3">Baptism of Holy Spirit</option>
+      <option value="4">Baptism</option>
     </select>
     <input type="text" id="filterFollowUp" placeholder="Filter by Follow-up">
   </div>
