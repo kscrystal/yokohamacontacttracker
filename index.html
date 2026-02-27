@@ -1,87 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Discipleship Contact Cards</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacts Pokémon Cards</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container">
+  <h1>Contacts Manager</h1>
 
-<h1>Discipleship Tracker</h1>
+  <!-- Add Contact Form -->
+  <form id="contactForm">
+    <label>Name</label>
+    <input type="text" name="Name" placeholder="Name" required>
 
-<div class="top-controls">
-  <input type="text" id="searchInput" placeholder="Search by name...">
+    <label>Photo</label>
+    <input type="file" id="PhotoFile" accept="image/*">
 
-  <select id="milestoneFilter">
-    <option value="all">All</option>
-    <option value="0.5">Open (0.5+)</option>
-    <option value="1">Salvation (1+)</option>
-    <option value="2">Next Step (2+)</option>
-    <option value="3">Holy Spirit (3+)</option>
-    <option value="4">Baptism (4+)</option>
-  </select>
+    <label>Gospel Shared</label>
+    <select name="GospelShared"><option>No</option><option>Yes</option></select>
 
-  <button id="addBtn">Add Contact</button>
+    <label>Salvation</label>
+    <select name="Salvation"><option>No</option><option>Yes</option></select>
+
+    <label>Prayed</label>
+    <select name="Prayed"><option>No</option><option>Yes</option></select>
+
+    <label>Remarks</label>
+    <input type="text" name="Remarks" placeholder="Remarks">
+
+    <label>Updated Remarks</label>
+    <input type="text" name="UpdatedRemarks" placeholder="Updated Remarks">
+
+    <label>LINE ID</label>
+    <input type="text" name="LINEID" placeholder="LINE ID">
+
+    <label>Instagram ID</label>
+    <input type="text" name="InstagramID" placeholder="Instagram ID">
+
+    <label>HelloTalk ID</label>
+    <input type="text" name="HelloTalkID" placeholder="HelloTalk ID">
+
+    <label>Job / School</label>
+    <input type="text" name="JobSchool" placeholder="Job/School">
+
+    <label>Occupation / Course</label>
+    <input type="text" name="OccupationCourse" placeholder="Occupation/Course">
+
+    <label>Stars (0-5)</label>
+    <input type="number" name="MilestoneScore" placeholder="0-5" min="0" max="5">
+
+    <button type="submit">Add Contact</button>
+  </form>
+
+  <!-- Filters -->
+  <div class="filters">
+    <input type="text" id="searchName" placeholder="Search by name">
+    <select id="filterStars">
+      <option value="">All stars</option>
+      <option value="1">1★</option>
+      <option value="2">2★</option>
+      <option value="3">3★</option>
+      <option value="4">4★</option>
+      <option value="5">5★</option>
+    </select>
+  </div>
+
+  <!-- Card container -->
+  <div id="contactsList" class="cards-container"></div>
 </div>
 
-<div id="cardsContainer"></div>
-
-<!-- Modal -->
-<div id="modal" class="modal">
+<!-- Edit Modal -->
+<div id="editModal" class="modal">
   <div class="modal-content">
-    <h2>Add / Edit Contact</h2>
+    <span class="close">&times;</span>
+    <form id="editForm">
+      <label>Name</label>
+      <input type="text" name="Name" required>
 
-    <form id="contactForm">
-      <input type="hidden" id="_rowIndex">
+      <label>Photo</label>
+      <input type="file" id="EditPhotoFile" accept="image/*">
 
-      <input type="text" id="Name" placeholder="Name" required>
-      
-      <select id="GospelShared">
-        <option value="NO">Gospel Shared - NO</option>
-        <option value="YES">Gospel Shared - YES</option>
-      </select>
+      <label>Gospel Shared</label>
+      <select name="GospelShared"><option>No</option><option>Yes</option></select>
 
-      <select id="Salvation">
-        <option value="NO">Salvation - NO</option>
-        <option value="YES">Salvation - YES</option>
-      </select>
+      <label>Salvation</label>
+      <select name="Salvation"><option>No</option><option>Yes</option></select>
 
-      <select id="Prayed">
-        <option value="NO">Prayed - NO</option>
-        <option value="YES">Prayed - YES</option>
-      </select>
+      <label>Prayed</label>
+      <select name="Prayed"><option>No</option><option>Yes</option></select>
 
-      <textarea id="Remarks" placeholder="Remarks"></textarea>
-      <textarea id="UpdatedRemarks" placeholder="Updated Remarks"></textarea>
+      <label>Remarks</label>
+      <input type="text" name="Remarks">
 
-      <input type="text" id="LINEID" placeholder="LINE ID">
-      <input type="text" id="InstagramID" placeholder="Instagram ID">
-      <input type="text" id="HelloTalkID" placeholder="HelloTalk ID">
-      <input type="text" id="JobSchool" placeholder="Job / School">
-      <input type="text" id="OccupationCourse" placeholder="Occupation / Course">
+      <label>Updated Remarks</label>
+      <input type="text" name="UpdatedRemarks">
 
-      <select id="MilestoneScore">
-        <option value="0">Not Open</option>
-        <option value="0.5">Open</option>
-        <option value="1">Salvation</option>
-        <option value="1.5">Next Step Started</option>
-        <option value="2">Next Step Completed</option>
-        <option value="2.5">Next Step Weekend 1</option>
-        <option value="3">Baptism of Holy Spirit</option>
-        <option value="4">Baptism</option>
-      </select>
+      <label>LINE ID</label>
+      <input type="text" name="LINEID">
 
-      <input type="file" id="photo">
+      <label>Instagram ID</label>
+      <input type="text" name="InstagramID">
 
-      <div class="modal-buttons">
-        <button type="submit">Save</button>
-        <button type="button" id="closeModal">Cancel</button>
-      </div>
+      <label>HelloTalk ID</label>
+      <input type="text" name="HelloTalkID">
+
+      <label>Job / School</label>
+      <input type="text" name="JobSchool">
+
+      <label>Occupation / Course</label>
+      <input type="text" name="OccupationCourse">
+
+      <label>Stars (0-5)</label>
+      <input type="number" name="MilestoneScore" min="0" max="5">
+
+      <button type="submit">Save Changes</button>
     </form>
   </div>
 </div>
 
 <script src="script.js"></script>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>
