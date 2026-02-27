@@ -1,6 +1,17 @@
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx2SAwMd7Qdrc1mVkdgZuUaGUZbF6qzvSXX8sgNkazrhLYez0Tts7qjqXv87cBuDhG8/exec";
 const LOCAL_KEY = "contacts_local";
 
+const milestoneMap = {
+  "0": "Not Open",
+  "0.5": "Open",
+  "1": "Salvation",
+  "1.5": "Next Step Started",
+  "2": "Next Step Completed",
+  "2.5": "Next Step Weekend 1",
+  "3": "Baptism of Holy Spirit",
+  "4": "Baptism"
+};
+
 // ------------------- IMAGE COMPRESSION -------------------
 function compressImage(file,maxWidth=500,maxHeight=500,quality=0.7){
   return new Promise(resolve=>{
@@ -73,13 +84,14 @@ document.getElementById("contactForm").addEventListener("submit",async e=>{
 
 // ------------------- FILTERS -------------------
 document.getElementById("searchName").addEventListener("input",()=>renderContactsFiltered());
-document.getElementById("filterStars").addEventListener("change",()=>renderContactsFiltered());
+document.getElementById("filterMilestone").addEventListener("change",()=>renderContactsFiltered());
 document.getElementById("filterFollowUp").addEventListener("input",()=>renderContactsFiltered());
 
 function renderContactsFiltered(){
   let contacts=loadLocalContacts();
   const nameFilter=document.getElementById("searchName").value.toLowerCase();
-  const starFilter=document.getElementById("filterStars").value;
+  const milestoneFilter=document.getElementById("filterMilestone").value;
+  if(milestoneFilter) contacts=contacts.filter(c=>c.MilestoneScore==milestoneFilter);
   const followUpFilter=document.getElementById("filterFollowUp").value.toLowerCase();
 
   if(nameFilter) contacts=contacts.filter(c=>c.Name.toLowerCase().includes(nameFilter));
@@ -92,7 +104,7 @@ function renderContactsFiltered(){
     const card=document.createElement("div");card.className="contact-card";
     const inner=document.createElement("div");inner.className="card-inner";
     const front=document.createElement("div");front.className="card-front";
-    front.innerHTML=`<img src="${c.PhotoURL||''}" alt="${c.Name}"><h3>${c.Name}</h3><div class="stars">${"★".repeat(c.MilestoneScore||0)}</div>`;
+    front.innerHTML=`<img src="${c.PhotoURL||''}" alt="${c.Name}"><h3>${c.Name}</h3><div class="milestone">${milestoneMap[c.MilestoneScore] || "Not Set"}</div>;
     const back=document.createElement("div");back.className="card-back";
     back.innerHTML=`
       <p>Gospel Shared: ${c.GospelShared||"No"}</p>
