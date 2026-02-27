@@ -3,17 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contacts Tracking</title>
+<title>Contacts Mini App</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
   <h1>Contacts Manager</h1>
 
-  <!-- Add Contact Form -->
   <form id="contactForm">
     <label>Name</label>
-    <input type="text" name="Name" placeholder="Name" required>
+    <input type="text" name="Name" required>
 
     <label>Photo</label>
     <input type="file" id="PhotoFile" accept="image/*">
@@ -28,33 +27,35 @@
     <select name="Prayed"><option>No</option><option>Yes</option></select>
 
     <label>Remarks</label>
-    <input type="text" name="Remarks" placeholder="Remarks">
+    <input type="text" name="Remarks">
 
     <label>Updated Remarks</label>
-    <input type="text" name="UpdatedRemarks" placeholder="Updated Remarks">
+    <input type="text" name="UpdatedRemarks">
+
+    <label>Follow-up by</label>
+    <input type="text" name="FollowUpBy">
 
     <label>LINE ID</label>
-    <input type="text" name="LINEID" placeholder="LINE ID">
+    <input type="text" name="LINEID">
 
     <label>Instagram ID</label>
-    <input type="text" name="InstagramID" placeholder="Instagram ID">
+    <input type="text" name="InstagramID">
 
     <label>HelloTalk ID</label>
-    <input type="text" name="HelloTalkID" placeholder="HelloTalk ID">
+    <input type="text" name="HelloTalkID">
 
     <label>Job / School</label>
-    <input type="text" name="JobSchool" placeholder="Job/School">
+    <input type="text" name="JobSchool">
 
     <label>Occupation / Course</label>
-    <input type="text" name="OccupationCourse" placeholder="Occupation/Course">
+    <input type="text" name="OccupationCourse">
 
     <label>Stars (0-5)</label>
-    <input type="number" name="MilestoneScore" placeholder="0-5" min="0" max="5">
+    <input type="number" name="MilestoneScore" min="0" max="5">
 
     <button type="submit">Add Contact</button>
   </form>
 
-  <!-- Filters -->
   <div class="filters">
     <input type="text" id="searchName" placeholder="Search by name">
     <select id="filterStars">
@@ -65,61 +66,11 @@
       <option value="4">4★</option>
       <option value="5">5★</option>
     </select>
+    <input type="text" id="filterFollowUp" placeholder="Filter by Follow-up">
   </div>
 
-  <!-- Card container -->
   <div id="contactsList" class="cards-container"></div>
 </div>
-
-<!-- Edit Modal -->
-<div id="editModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <form id="editForm">
-      <label>Name</label>
-      <input type="text" name="Name" required>
-
-      <label>Photo</label>
-      <input type="file" id="EditPhotoFile" accept="image/*">
-
-      <label>Gospel Shared</label>
-      <select name="GospelShared"><option>No</option><option>Yes</option></select>
-
-      <label>Salvation</label>
-      <select name="Salvation"><option>No</option><option>Yes</option></select>
-
-      <label>Prayed</label>
-      <select name="Prayed"><option>No</option><option>Yes</option></select>
-
-      <label>Remarks</label>
-      <input type="text" name="Remarks">
-
-      <label>Updated Remarks</label>
-      <input type="text" name="UpdatedRemarks">
-
-      <label>LINE ID</label>
-      <input type="text" name="LINEID">
-
-      <label>Instagram ID</label>
-      <input type="text" name="InstagramID">
-
-      <label>HelloTalk ID</label>
-      <input type="text" name="HelloTalkID">
-
-      <label>Job / School</label>
-      <input type="text" name="JobSchool">
-
-      <label>Occupation / Course</label>
-      <input type="text" name="OccupationCourse">
-
-      <label>Stars (0-5)</label>
-      <input type="number" name="MilestoneScore" min="0" max="5">
-
-      <button type="submit">Save Changes</button>
-    </form>
-  </div>
-</div>
-
 <script src="script.js"></script>
 </body>
 </html>
