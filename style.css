@@ -18,3 +18,9 @@ button{background:var(--main-color);color:white;border:none;border-radius:5px;pa
 .card-front img{width:100%;height:140px;object-fit:cover;border-bottom:1px solid #ddd;}
 .card-back{background:var(--card-bg);transform:rotateY(180deg);padding:10px;font-size:12px;display:flex;flex-direction:column;justify-content:space-between;}
 .stars{color:gold;font-size:16px;font-weight:bold;margin:5px 0;}
+.milestone{
+  font-weight:bold;
+  font-size:14px;
+  color:#1E90FF;
+  margin:5px 0;
+}
