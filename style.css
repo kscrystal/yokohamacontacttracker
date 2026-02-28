@@ -1,26 +1,156 @@
 :root{
-  --main-color:#1E90FF;
-  --card-bg:#E6F0FA;
+  --primary:#1E90FF;
+  --secondary:#E6F0FA;
+  --background:#f4f9ff;
 }
 
-body{font-family:Arial,sans-serif;background:#f0f8ff;padding:20px;}
-.container{max-width:900px;margin:0 auto;}
-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:20px;}
-form label{font-weight:bold;margin-top:5px;}
-button{background:var(--main-color);color:white;border:none;border-radius:5px;padding:5px;cursor:pointer;}
+body{
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  margin:0;
+  padding:20px;
+}
 
-.cards-container{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;}
-.contact-card{width:180px;perspective:1000px;}
-.card-inner{position:relative;width:100%;height:280px;transition:transform 0.8s;transform-style:preserve-3d;}
-.contact-card:hover .card-inner{transform:rotateY(180deg);}
-.card-front,.card-back{position:absolute;width:100%;height:100%;border-radius:15px;backface-visibility:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.2);overflow:hidden;}
-.card-front{background:#fff;}
-.card-front img{width:100%;height:140px;object-fit:cover;border-bottom:1px solid #ddd;}
-.card-back{background:var(--card-bg);transform:rotateY(180deg);padding:10px;font-size:12px;display:flex;flex-direction:column;justify-content:space-between;}
-.stars{color:gold;font-size:16px;font-weight:bold;margin:5px 0;}
+.container{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+h1{
+  text-align:center;
+  color:var(--primary);
+  margin-bottom:25px;
+}
+
+/* ================= FORM ================= */
+
+form{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:10px;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom:25px;
+}
+
+form label{
+  font-size:13px;
+  font-weight:bold;
+}
+
+form input,
+form select{
+  padding:6px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+form button{
+  grid-column:1/-1;
+  padding:10px;
+  border:none;
+  background:var(--primary);
+  color:white;
+  font-weight:bold;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+form button:hover{
+  opacity:0.9;
+}
+
+/* ================= FILTERS ================= */
+
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.filters input,
+.filters select{
+  padding:6px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+/* ================= CARD LAYOUT ================= */
+
+.cards-container{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+
+/* Pokémon-style flip card */
+
+.contact-card{
+  width:200px;
+  height:300px;
+  perspective:1000px;
+}
+
+.card-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  text-align:center;
+  transition:transform 0.7s;
+  transform-style:preserve-3d;
+}
+
+.contact-card:hover .card-inner{
+  transform:rotateY(180deg);
+}
+
+.card-front,
+.card-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  backface-visibility:hidden;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.card-front{
+  background:white;
+}
+
+.card-front img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+}
+
+.card-front h3{
+  margin:10px 0 5px 0;
+}
+
 .milestone{
   font-weight:bold;
+  color:var(--primary);
   font-size:14px;
-  color:#1E90FF;
-  margin:5px 0;
+}
+
+.card-back{
+  background:var(--secondary);
+  transform:rotateY(180deg);
+  padding:10px;
+  font-size:12px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  text-align:left;
+}
+
+.card-back p{
+  margin:4px 0;
 }
