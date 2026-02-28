@@ -1,112 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Discipleship Contacts</title>
-<link rel="stylesheet" href="style.css">
+<title>Contact Manager</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  padding: 30px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+form label {
+  font-size: 13px;
+  margin-bottom: 3px;
+  display: block;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+button {
+  grid-column: span 2;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.success {
+  color: green;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
+  <h2>Add Contact</h2>
 
-  <h1>Discipleship Tracker</h1>
-
-  <!-- ================= FORM ================= -->
   <form id="contactForm">
 
-    <label>Name</label>
-    <input type="text" name="Name" required>
+    <div>
+      <label>Photo URL</label>
+      <input type="text" name="PhotoURL">
+    </div>
 
-    <label>Photo</label>
-    <input type="file" id="PhotoFile" accept="image/*">
+    <div>
+      <label>Name *</label>
+      <input type="text" name="Name" required>
+    </div>
 
-    <label>Milestone</label>
-    <select name="MilestoneScore">
-      <option value="0">Not Open</option>
-      <option value="0.5">Open</option>
-      <option value="1">Salvation</option>
-      <option value="1.5">Next Step Started</option>
-      <option value="2">Next Step Completed</option>
-      <option value="2.5">Next Step Weekend 1</option>
-      <option value="3">Baptism of Holy Spirit</option>
-      <option value="4">Baptism</option>
-    </select>
+    <div>
+      <label>Gospel Shared</label>
+      <input type="text" name="GospelShared">
+    </div>
 
-    <label>Gospel Shared</label>
-    <select name="GospelShared">
-      <option>No</option>
-      <option>Yes</option>
-    </select>
+    <div>
+      <label>Salvation</label>
+      <input type="text" name="Salvation">
+    </div>
 
-    <label>Salvation</label>
-    <select name="Salvation">
-      <option>No</option>
-      <option>Yes</option>
-    </select>
+    <div>
+      <label>Prayed</label>
+      <input type="text" name="Prayed">
+    </div>
 
-    <label>Prayed</label>
-    <select name="Prayed">
-      <option>No</option>
-      <option>Yes</option>
-    </select>
+    <div>
+      <label>Follow Up By</label>
+      <select name="FollowUpBy">
+        <option value="">Select</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+      </select>
+    </div>
 
-    <label>Remarks</label>
-    <input type="text" name="Remarks">
+    <div>
+      <label>LINE ID</label>
+      <input type="text" name="LINEID">
+    </div>
 
-    <label>Updated Remarks</label>
-    <input type="text" name="UpdatedRemarks">
+    <div>
+      <label>Instagram ID</label>
+      <input type="text" name="InstagramID">
+    </div>
 
-    <label>Follow-up By</label>
-    <input type="text" name="FollowUpBy">
+    <div>
+      <label>HelloTalk ID</label>
+      <input type="text" name="HelloTalkID">
+    </div>
 
-    <label>LINE ID</label>
-    <input type="text" name="LINEID">
+    <div>
+      <label>Job / School</label>
+      <select name="JobSchool">
+        <option value="">Select</option>
+        <option value="Job">Job</option>
+        <option value="School">School</option>
+      </select>
+    </div>
 
-    <label>Instagram ID</label>
-    <input type="text" name="InstagramID">
+    <div>
+      <label>Occupation / Course</label>
+      <input type="text" name="OccupationCourse">
+    </div>
 
-    <label>HelloTalk ID</label>
-    <input type="text" name="HelloTalkID">
+    <div>
+      <label>Milestone Score</label>
+      <select name="MilestoneScore">
+        <option value="">Select</option>
+        <option value="0">Not Open</option>
+        <option value="0.5">Open</option>
+        <option value="1">Salvation</option>
+        <option value="1.5">Next Step Started</option>
+        <option value="2">Next Step Completed</option>
+        <option value="2.5">Next Step Weekend 1</option>
+        <option value="3">Baptism of Holy Spirit</option>
+        <option value="4">Baptism</option>
+      </select>
+    </div>
 
-    <label>Job / School</label>
-    <input type="text" name="JobSchool">
+    <div class="full-width">
+      <label>Remarks</label>
+      <textarea name="Remarks"></textarea>
+    </div>
 
-    <label>Occupation / Course</label>
-    <input type="text" name="OccupationCourse">
-
-    <button type="submit">Add Contact</button>
+    <button type="submit">Save Contact</button>
 
   </form>
 
-  <!-- ================= FILTERS ================= -->
-
-  <div class="filters">
-
-    <input type="text" id="searchName" placeholder="Search by Name">
-
-    <select id="filterMilestone">
-      <option value="">All Milestones</option>
-      <option value="0">Not Open</option>
-      <option value="0.5">Open</option>
-      <option value="1">Salvation</option>
-      <option value="1.5">Next Step Started</option>
-      <option value="2">Next Step Completed</option>
-      <option value="2.5">Next Step Weekend 1</option>
-      <option value="3">Baptism of Holy Spirit</option>
-      <option value="4">Baptism</option>
-    </select>
-
-    <input type="text" id="filterFollowUp" placeholder="Filter by Follow-up">
-
-  </div>
-
-  <!-- ================= CARDS ================= -->
-
-  <div id="contactsList" class="cards-container"></div>
-
+  <div id="responseMsg"></div>
 </div>
 
-<script src="script.js"></script>
+<script>
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycby7avZjGQeabr-hfFYYq5K1ACTSURqV8KwWQ5qHuuxWjXW8D6bPxuR9rTEvbMdyjgff/exec";
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+  const contact = Object.fromEntries(formData.entries());
+
+  fetch(WEB_APP_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(contact)
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      document.getElementById("responseMsg").innerHTML =
+        "<div class='success'>Contact saved successfully!</div>";
+      form.reset();
+    } else {
+      document.getElementById("responseMsg").innerHTML =
+        "<div class='error'>" + data.error + "</div>";
+    }
+  })
+  .catch(err => {
+    document.getElementById("responseMsg").innerHTML =
+      "<div class='error'>Error: " + err + "</div>";
+  });
+});
+</script>
+
 </body>
 </html>
