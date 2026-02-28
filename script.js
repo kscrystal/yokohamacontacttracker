@@ -1,5 +1,5 @@
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx2SAwMd7Qdrc1mVkdgZuUaGUZbF6qzvSXX8sgNkazrhLYez0Tts7qjqXv87cBuDhG8/exec";
-const LOCAL_KEY = "contacts_local";
+const WEB_APP_URL="https://script.google.com/macros/s/AKfycby7avZjGQeabr-hfFYYq5K1ACTSURqV8KwWQ5qHuuxWjXW8D6bPxuR9rTEvbMdyjgff/exec";
+const LOCAL_KEY="contacts_local";
 
 const milestoneMap = {
   "0": "Not Open",
@@ -67,11 +67,6 @@ async function syncToServer(){
   saveLocalContacts(contacts);
 }
 
-// ------------------- RENDER CARDS -------------------
-function renderContacts(){
-  renderContactsFiltered();
-}
-
 // ------------------- FORM SUBMISSION -------------------
 document.getElementById("contactForm").addEventListener("submit",async e=>{
   e.preventDefault();
@@ -91,11 +86,10 @@ function renderContactsFiltered(){
   let contacts=loadLocalContacts();
   const nameFilter=document.getElementById("searchName").value.toLowerCase();
   const milestoneFilter=document.getElementById("filterMilestone").value;
-  if(milestoneFilter) contacts=contacts.filter(c=>c.MilestoneScore==milestoneFilter);
   const followUpFilter=document.getElementById("filterFollowUp").value.toLowerCase();
 
   if(nameFilter) contacts=contacts.filter(c=>c.Name.toLowerCase().includes(nameFilter));
-  if(starFilter) contacts=contacts.filter(c=>c.MilestoneScore==starFilter);
+  if(milestoneFilter) contacts=contacts.filter(c=>c.MilestoneScore==milestoneFilter);
   if(followUpFilter) contacts=contacts.filter(c=>(c.FollowUpBy||"").toLowerCase().includes(followUpFilter));
 
   const container=document.getElementById("contactsList");
@@ -104,7 +98,7 @@ function renderContactsFiltered(){
     const card=document.createElement("div");card.className="contact-card";
     const inner=document.createElement("div");inner.className="card-inner";
     const front=document.createElement("div");front.className="card-front";
-    front.innerHTML=`<img src="${c.PhotoURL||''}" alt="${c.Name}"><h3>${c.Name}</h3><div class="milestone">${milestoneMap[c.MilestoneScore] || "Not Set"}</div>;
+    front.innerHTML=`<img src="${c.PhotoURL||''}" alt="${c.Name}"><h3>${c.Name}</h3><div class="milestone">${milestoneMap[c.MilestoneScore]||"Not Set"}</div>`;
     const back=document.createElement("div");back.className="card-back";
     back.innerHTML=`
       <p>Gospel Shared: ${c.GospelShared||"No"}</p>
