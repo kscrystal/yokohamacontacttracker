@@ -3,214 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <title>Contact Manager</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f9;
-  padding: 30px;
-}
-
-.container {
-  max-width: 800px;
-  margin: auto;
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-h2 {
-  margin-bottom: 20px;
-}
-
-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-
-form label {
-  font-size: 13px;
-  margin-bottom: 3px;
-  display: block;
-}
-
-input, select, textarea {
-  width: 100%;
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 60px;
-}
-
-.full-width {
-  grid-column: span 2;
-}
-
-button {
-  grid-column: span 2;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  background: #007bff;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #0056b3;
-}
-
-.success {
-  color: green;
-  margin-top: 10px;
-}
-
-.error {
-  color: red;
-  margin-top: 10px;
-}
+body { font-family: Arial; background:#f4f6f9; padding:20px; }
+.container { max-width:700px; margin:auto; background:white; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+form { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px;}
+input, select, textarea { padding:8px; border-radius:8px; border:1px solid #ccc; }
+button { grid-column:span 2; padding:12px; border:none; border-radius:8px; background:#3b82f6; color:white; font-weight:bold;}
+.preview { max-width:100%; margin-top:10px; border-radius:8px;}
+.success{color:green;}
+.error{color:red;}
+.full{grid-column:span 2;}
 </style>
 </head>
 
 <body>
-
 <div class="container">
-  <h2>Add Contact</h2>
+<h2>Add Contact</h2>
 
-  <form id="contactForm">
+<form id="form">
 
-    <div>
-      <label>Photo URL</label>
-      <input type="text" name="PhotoURL">
-    </div>
+<div class="full">
+<label>Photo Upload</label>
+<input type="file" id="photoInput" accept="image/*">
+<img id="preview" class="preview"/>
+</div>
 
-    <div>
-      <label>Name *</label>
-      <input type="text" name="Name" required>
-    </div>
+<input name="Name" placeholder="Name" required>
 
-    <div>
-      <label>Gospel Shared</label>
-      <input type="text" name="GospelShared">
-    </div>
+<select name="GospelShared">
+<option value="">Gospel Shared?</option>
+<option>Yes</option>
+<option>No</option>
+</select>
 
-    <div>
-      <label>Salvation</label>
-      <input type="text" name="Salvation">
-    </div>
+<select name="Salvation">
+<option value="">Salvation?</option>
+<option>Yes</option>
+<option>No</option>
+</select>
 
-    <div>
-      <label>Prayed</label>
-      <input type="text" name="Prayed">
-    </div>
+<select name="Prayed">
+<option value="">Prayed?</option>
+<option>Yes</option>
+<option>No</option>
+</select>
 
-    <div>
-      <label>Follow Up By</label>
-      <select name="FollowUpBy">
-        <option value="">Select</option>
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="C">C</option>
-        <option value="D">D</option>
-        <option value="E">E</option>
-      </select>
-    </div>
+<select name="FollowUpBy">
+<option value="">Follow Up By</option>
+<option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+</select>
 
-    <div>
-      <label>LINE ID</label>
-      <input type="text" name="LINEID">
-    </div>
+<input name="LINEID" placeholder="LINE ID">
+<input name="InstagramID" placeholder="Instagram ID">
+<input name="HelloTalkID" placeholder="HelloTalk ID">
 
-    <div>
-      <label>Instagram ID</label>
-      <input type="text" name="InstagramID">
-    </div>
+<select name="JobSchool">
+<option value="">Job / School</option>
+<option>Job</option>
+<option>School</option>
+</select>
 
-    <div>
-      <label>HelloTalk ID</label>
-      <input type="text" name="HelloTalkID">
-    </div>
+<input name="OccupationCourse" placeholder="Occupation / Course">
 
-    <div>
-      <label>Job / School</label>
-      <select name="JobSchool">
-        <option value="">Select</option>
-        <option value="Job">Job</option>
-        <option value="School">School</option>
-      </select>
-    </div>
+<select name="MilestoneScore">
+<option value="">Milestone</option>
+<option value="0">Not Open</option>
+<option value="0.5">Open</option>
+<option value="1">Salvation</option>
+<option value="1.5">Next Step Started</option>
+<option value="2">Next Step Completed</option>
+<option value="2.5">Next Step Weekend 1</option>
+<option value="3">Baptism of Holy Spirit</option>
+<option value="4">Baptism</option>
+</select>
 
-    <div>
-      <label>Occupation / Course</label>
-      <input type="text" name="OccupationCourse">
-    </div>
+<textarea name="Remarks" placeholder="Remarks"></textarea>
 
-    <div>
-      <label>Milestone Score</label>
-      <select name="MilestoneScore">
-        <option value="">Select</option>
-        <option value="0">Not Open</option>
-        <option value="0.5">Open</option>
-        <option value="1">Salvation</option>
-        <option value="1.5">Next Step Started</option>
-        <option value="2">Next Step Completed</option>
-        <option value="2.5">Next Step Weekend 1</option>
-        <option value="3">Baptism of Holy Spirit</option>
-        <option value="4">Baptism</option>
-      </select>
-    </div>
+<button type="submit">Save Contact</button>
 
-    <div class="full-width">
-      <label>Remarks</label>
-      <textarea name="Remarks"></textarea>
-    </div>
+</form>
 
-    <button type="submit">Save Contact</button>
-
-  </form>
-
-  <div id="responseMsg"></div>
+<div id="msg"></div>
 </div>
 
 <script>
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzm91mDzsXWl9Otw0flvSL4-M9miy5ea4wCXDaOZJIK77NM4z65H-77VTAj9nHlZKrw/exec";
+const WEB_APP_URL = "PASTE_YOUR_WEB_APP_URL";
+let compressedImage = "";
 
-document.getElementById("contactForm").addEventListener("submit", function(e) {
+// 🔥 COMPRESS IMAGE BEFORE SENDING
+document.getElementById("photoInput").addEventListener("change", function(e){
+  const file = e.target.files[0];
+  if(!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(event){
+    const img = new Image();
+    img.src = event.target.result;
+
+    img.onload = function(){
+      const canvas = document.createElement("canvas");
+
+      const maxWidth = 600;
+      const scale = maxWidth / img.width;
+
+      canvas.width = maxWidth;
+      canvas.height = img.height * scale;
+
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img,0,0,canvas.width,canvas.height);
+
+      compressedImage = canvas.toDataURL("image/jpeg", 0.6); // 60% quality
+
+      document.getElementById("preview").src = compressedImage;
+    };
+  };
+  reader.readAsDataURL(file);
+});
+
+document.getElementById("form").addEventListener("submit", function(e){
   e.preventDefault();
 
-  const form = e.target;
-  const formData = new FormData(form);
-  const contact = Object.fromEntries(formData.entries());
+  const data = Object.fromEntries(new FormData(this).entries());
+  data.PhotoURL = compressedImage;
 
-  fetch(WEB_APP_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(contact)
+  fetch(WEB_APP_URL,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(data)
   })
-  .then(res => res.json())
-  .then(data => {
-    if (data.success) {
-      document.getElementById("responseMsg").innerHTML =
-        "<div class='success'>Contact saved successfully!</div>";
-      form.reset();
-    } else {
-      document.getElementById("responseMsg").innerHTML =
-        "<div class='error'>" + data.error + "</div>";
+  .then(res=>res.json())
+  .then(res=>{
+    if(res.success){
+      document.getElementById("msg").innerHTML="<p class='success'>Saved!</p>";
+      this.reset();
+      document.getElementById("preview").src="";
+      compressedImage="";
+    }else{
+      document.getElementById("msg").innerHTML="<p class='error'>"+res.error+"</p>";
     }
   })
-  .catch(err => {
-    document.getElementById("responseMsg").innerHTML =
-      "<div class='error'>Error: " + err + "</div>";
+  .catch(err=>{
+    document.getElementById("msg").innerHTML="<p class='error'>"+err+"</p>";
   });
 });
 </script>
